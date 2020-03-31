@@ -6,7 +6,10 @@
 .title{
     margin-top:20px;
 }
-
+.piece{
+    font-size: 2em;
+    color: darkolivegreen
+}
 .icon{
     font-size: 2em;
     color: cadetblue
@@ -21,6 +24,20 @@
 .emoji{
     font-size: 2em;
     color:blue
+}
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+}
+.middle{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+    height: 35%;  
 }
 .cool{
     font-size: 2em;
