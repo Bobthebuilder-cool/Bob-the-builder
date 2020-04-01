@@ -54,6 +54,9 @@ footer{
 .protect-list li{
     margin:15px auto;
 }
+.ordered-list li{
+    margin:4px auto;
+}
 @media screen and (max-width: 767px){
     .banner{
         background: white url(../images/home-banner.jpg) no-repeat 25%/cover;
