@@ -112,11 +112,11 @@ footer{
 }
 /*scroll top btn*/
 #scrolltop-btn{
-    position:fixed;
+    position: fixed;
     right: 20px;
     bottom: 20px;
     z-index: 99;
-    font-size:40px;
+    font-size: 40px;
     color:red;
 }
 .update-status{

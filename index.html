@@ -14,7 +14,6 @@
         <div class="container">
             <div class="text-center js-update-date">Update Date: DD/MM/YY</div>
             <div class="row text-center">
-                
                 <div class="col-6 col-md-3 js-confirmed box">
                     <p>Confirmed: N/A</p>
                     <p>NewConfirmed: N/A</p>
@@ -34,18 +33,21 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        
+    <div class="container">        
         <div class="row" id="js-section95">
           <div class="col-md-4 sidebar">
               <nav class="nav-container">
-             <nav>
                  <ul id="js-sidenav">
-                     <li class="active"><a href="javascript:void(0)" target="_blank">What is Covid 19?</a></li>
+                     <li class="active"><a href="javascript:void(0)" target="_blank">What is COVID-19?</a></li>
                      <li><a href="javascript:void(0)" target="_blank">How to Protect Yourself</a></li>
                      <li><a href="javascript:void(0)" target="_blank">How Did it Come About?</a></li>
                      <li><a href="javascript:void(0)" target="_blank">Common Symptoms</a></li>
                      <li><a href="javascript:void(0)" target="_blank">Flattening the Curve</a></li>
+                     <li><a href="javascript:void(0)" target="_blank">Facts about COVID-19</a></li>
+                     <li><a href="javascript:void(0)" target="_blank">DIY Hand Sanitizer</a></li>
+                     <li><a href="javascript:void(0)" target="_blank">Time SARS-CoV-2 Lasts on Surfaces</a></li>
+                     <li><a href="javascript:void(0)" target="_blank">Other Coronaviruses</a></li>
+                     <li><a href="javascript:void(0)" target="_blank">Sources</a></li>
                  </ul>
              </nav>
           </div>
@@ -227,12 +229,16 @@
                 cache: false,
                 success: function(data){
                     $(".js-update-date").text(data.UpdateDate)
+
                     $(".js-confirmed").find("p:first-child").text("Confirmed: "+data.Confirmed);
                     $(".js-confirmed").find("p:last-child").text("New Confirmed: "+data.NewConfirmed);
+
                     $(".js-hospitalized").find("p:first-child").text("Hospitalized: "+data.Hospitalized);
                     $(".js-hospitalized").find("p:last-child").text("New Hospitalized: "+data.NewHospitalized);
+
                     $(".js-recover").find("p:first-child").text("Recovered: "+data.Recovered);
                     $(".js-recover").find("p:last-child").text("New Recovered: "+data.NewRecovered);
+
                     $(".js-death").find("p:first-child").text("Deaths: "+data.Deaths);
                     $(".js-death").find("p:last-child").text("New Deaths: "+data.NewDeaths);
                 }
@@ -246,14 +252,15 @@
                 scrollToDiv(listIndex);
             })
             //Btn scroll to top page
+            $("#scrolltop-btn").on("click",function(e){
+                e.preventDefault();
+                scrollToDiv(95);
+            })
+
             function scrollToDiv(id){
                 var scrollPos = $("#js-section"+id).offset().top;
                 $("body,html").animate({scrollTop: scrollPos},1000);
             }
-            $("scrolltop-btn").on("click",function(e){
-                e.preventDefault();
-                scrollToDiv(95);
-            })
         })
     </script>
 </body>
