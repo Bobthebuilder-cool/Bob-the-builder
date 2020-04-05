@@ -15,20 +15,20 @@
             <div class="text-center js-update-date">Update Date: DD/MM/YY</div>
             <div class="row text-center">
                 <div class="col-6 col-md-3 js-confirmed box">
-                    <p>Confirmed: N/A</p>
-                    <p>NewConfirmed: N/A</p>
+                    <p>Thai Confirmed Cases: N/A</p>
+                    <p>Thai Newly Confirmed Cases: N/A</p>
                 </div>
                 <div class="col-6 col-md-3 js-hospitalized box">
-                    <p>Hospitalized: N/A</p>
-                    <p>NewHospitalized: N/A</p>
+                    <p>Thai Hospitalized Cases: N/A</p>
+                    <p>Thai Newly Hospitalized Cases: N/A</p>
                 </div>
                 <div class="col-6 col-md-3 js-recover box">
-                    <p>Recovered: N/A</p>
-                    <p>NewRecovered: N/A</p>
+                    <p>Thai Recovered Cases: N/A</p>
+                    <p>Thai Newly Recovered Cases: N/A</p>
                 </div>
                 <div class="col-6 col-md-3 js-death box">
-                    <p>Death: N/A</p>
-                    <p>NewDeath: N/A</p>
+                    <p>Thai Deaths: N/A</p>
+                    <p>Thai New Deaths: N/A</p>
                 </div>
             </div>
         </div>
@@ -228,19 +228,19 @@
                 url:"https://covid19.th-stat.com/api/open/today",
                 cache: false,
                 success: function(data){
-                    $(".js-update-date").text(data.UpdateDate)
+                    $(".js-update-date").text("Thailand COVID-19 Statistics:     Date and Time of Data:  "+data.UpdateDate);
 
-                    $(".js-confirmed").find("p:first-child").text("Confirmed: "+data.Confirmed);
-                    $(".js-confirmed").find("p:last-child").text("New Confirmed: "+data.NewConfirmed);
+                    $(".js-confirmed").find("p:first-child").text("Thai Confirmed Cases: "+data.Confirmed);
+                    $(".js-confirmed").find("p:last-child").text("Thai Newly Confirmed Cases: "+data.NewConfirmed);
 
-                    $(".js-hospitalized").find("p:first-child").text("Hospitalized: "+data.Hospitalized);
-                    $(".js-hospitalized").find("p:last-child").text("New Hospitalized: "+data.NewHospitalized);
+                    $(".js-hospitalized").find("p:first-child").text("Thai Hospitalized Cases: "+data.Hospitalized);
+                    $(".js-hospitalized").find("p:last-child").text("Thai Newly Hospitalized Cases: "+data.NewHospitalized);
 
-                    $(".js-recover").find("p:first-child").text("Recovered: "+data.Recovered);
-                    $(".js-recover").find("p:last-child").text("New Recovered: "+data.NewRecovered);
+                    $(".js-recover").find("p:first-child").text("Thai Recovered Cases: "+data.Recovered);
+                    $(".js-recover").find("p:last-child").text("Thai Newly Recovered Cases: "+data.NewRecovered);
 
-                    $(".js-death").find("p:first-child").text("Deaths: "+data.Deaths);
-                    $(".js-death").find("p:last-child").text("New Deaths: "+data.NewDeaths);
+                    $(".js-death").find("p:first-child").text("Thai Deaths: "+data.Deaths);
+                    $(".js-death").find("p:last-child").text("Thai New Deaths: "+data.NewDeaths);
                 }
             });
             //Nav scroll to section
