@@ -26,18 +26,22 @@
     color:blue
 }
 .center{
-    display: block;
+    /*display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;*/
+    max-width: 400px;
+    width: 100%;
 }
 .middle{
-    display: block;
+    /*display: block;
     margin-left: auto;
     margin-right: auto;
     width: 35%;
-    height: 35%;  
+    height: 35%;*/
+    max-width: 300px;
+    width: 100%; 
 }
 .cool{
     font-size: 2em;
@@ -66,4 +70,86 @@ footer{
     .banner{
         background: white url(../images/home-banner.jpg) no-repeat 28%/cover;
     }   
+}
+/*Sidebar Navigation*/
+.nav-container{
+    margin-top: 30px;
+}
+.nav-container ul{
+    list-style: none;
+}
+.nav-container li{
+    padding: 10px ;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-top:1px dashed #ddd;
+    border-left:3px solid transparent;
+    transition: border-left .2s ease-in-out;
+}
+.nav-container li:last-child{
+    border-bottom:1px dashed #ddd;
+}
+.nav-container li:hover{
+    border-left:3px solid goldenrod;
+}
+.nav-container a {
+    font-size: 20px;
+    color:gray;
+    transition: color .2s ease-in-out;
+}
+.nav-container a:hover {
+    text-decoration: none;
+    color:goldenrod;
+}
+/* style list on active */
+.nav-container li.active{
+    border-left:3px solid goldenrod;        
+}
+.nav-container li.active a{
+    color:goldenrod;
+    font-weight: bold;        
+}
+/*scroll top btn*/
+#scrolltop-btn{
+    position:fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99;
+    font-size:40px;
+    color:red;
+}
+.update-status{
+    background: rgb(235, 110, 110);
+    padding:20px 0;    
+}
+.update-status .row{
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.update-status .box{
+    padding:10px;
+    border-radius: 20px;
+    flex: 0 0 22%;
+}
+.update-status .box:first-child{
+    background:rgb(70, 94, 35)
+}
+.update-status .box:nth-child(2){
+    background:rgb(57, 150, 150)
+}
+.update-status .box:nth-child(3){
+    background:yellow
+}
+.update-status .box:last-child{
+    background:gray
+}
+@media screen and (max-width:767px){
+    .update-status .box{
+        flex: 0 0 48%;
+        margin-top: 30px;
+    }
+    .update-statue .row{
+        margin-top:0;
+    } 
 }
