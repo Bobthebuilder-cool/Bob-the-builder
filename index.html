@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-6 col-md-3 js-hospitalized box">
                     <p>Thai Hospitalized Cases: N/A</p>
-                    <p>Thai Newly Hospitalized Cases - Newly Discharged: N/A</p>
+                    <p>Thai Hospitalized Population Change: N/A</p>
                 </div>
                 <div class="col-6 col-md-3 js-recover box">
                     <p>Thai Recovered Cases: N/A</p>
@@ -235,7 +235,7 @@
                     $(".js-confirmed").find("p:last-child").text("Thai Newly Confirmed Cases: "+data.NewConfirmed);
 
                     $(".js-hospitalized").find("p:first-child").text("Thai Hospitalized Cases: "+data.Hospitalized);
-                    $(".js-hospitalized").find("p:last-child").text("Thai Newly Hospitalized Cases - Newly Discharged: "+data.NewHospitalized);
+                    $(".js-hospitalized").find("p:last-child").text("Thai Hospitalized Population Change: "+data.NewHospitalized);
 
                     $(".js-recover").find("p:first-child").text("Thai Recovered Cases: "+data.Recovered);
                     $(".js-recover").find("p:last-child").text("Thai Newly Recovered Cases: "+data.NewRecovered);
