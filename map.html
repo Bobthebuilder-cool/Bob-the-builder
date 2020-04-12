@@ -16,7 +16,13 @@
         <div class="board-container">
             <h1>COVID-19 Real-Time Map</h1>
         </div>
+        <div class="board-list">
+            <ul id="js-list">
+
+            </ul>
+        </div>
     </div>
+    <div class="info-box"></div>
      <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
@@ -35,24 +41,58 @@
     //var marker = L.marker([13.7563, 100.5018], {icon: myIcon}).addTo(mymap).bindPopup("Hi BKK YOLO");
     
     const API = "https://coronavirus-tracker-api.herokuapp.com/v2/locations";
+    let countryList= "";
     fetch(API)
     .then((response) => {
         return response.json();
     })
     .then((data) => {
-        const {locations} = data
-        //console.log(locations)
+        const {locations, latest:{confirmed, deaths}} = data
+        console.log(confirmed,deaths)
         //console.log("locations :",locations);
         locations.map(l => {
-            const {country, province, coordinates:{latitude, longitude}, latest:{confirmed, recovered, deaths} } = l
+            const {country, country_population, province, coordinates:{latitude, longitude}, latest:{confirmed, recovered, deaths} } = l
             let zoneName = getZone(confirmed);
+            if(province != ''){
+                countryList +=`<li confirmed=${confirmed} population=${country_population} deaths=${deaths} >${country} : ${province}</li>`
+            }else{
+                countryList +=`<li confirmed=${confirmed} population=${country_population} deaths=${deaths} >${country}</li>`
+            }
             var myIcon = L.divIcon({className: zoneName});
             let popText = `<p class="country-name">${country} : ${province}</p><p class="detail"> Confirmed: ${confirmed} Deaths: ${deaths}</p>`
             return(
                 L.marker([latitude, longitude], {icon: myIcon}).addTo(mymap).bindPopup(popText)    
             )
         })
+        document.getElementById("js-list").innerHTML = countryList;
+    
+        var elements = document.getElementsByTagName("li");
+
+        var getListData = function() {
+            var deathVal = this.getAttribute("deaths");
+            var populationVal = this.getAttribute("population");
+            var confirmedVal = this.getAttribute("confirmed")
+            var countryVal = this.textContent;
+
+            var infoBox = document.querySelector(".info-box");
+            var isInfoBoxActive = infoBox.classList.contains("active")
+            infoBox.innerHTML = `<div>
+                <h2>${countryVal}</h2>
+                <p>Population: ${populationVal}</p>
+                <p>Confirmed: ${confirmedVal}</p>
+                <p>Deaths: ${deathVal}</p>
+                </div>`;
+            if(!isInfoBoxActive){
+                infoBox.classList.add("active");
+            }
+    };
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', getListData, false);
+    }
+
     }); 
+
 
         function getZone(confirmed){
             let zone = "";

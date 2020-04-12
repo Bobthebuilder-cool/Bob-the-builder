@@ -173,3 +173,39 @@ html,body{
 .board-container h1{
     font-size:24px;
 }
+.board-list{
+    height: 70vh;
+    overflow: scroll;
+}
+.board-list ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.board-list ul li{
+    border-bottom:1px solid #ddd;
+    padding:20px;
+}
+.info-box{
+    width:150px;
+    min-height: 150px;
+    position: fixed;
+    right:0;
+    padding: 10px;
+    top:50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    z-index:9999;
+    background: rgba(255,255,255,0.7);
+    opacity:0;
+    transition:opacity .3s ease-in-out;
+}
+.info-box h2{
+    font-size:18px;
+}
+.info-box p{
+    font-size:14px;
+}
+.info-box.active{
+    opacity:1;
+}
