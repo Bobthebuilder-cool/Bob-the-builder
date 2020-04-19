@@ -12,9 +12,27 @@
 </head>
 <body>
     <div id="mapid"></div>
-    <div class="board">
+    <div class="info-container">
+    <button id="js-info-btn" onclick="toggleShowInfo();">
+        <i class="fas fa-info-circle"></i>
+    </button>
+    <p>Show Extra Information</p>
+</div>
+
+    <div class="board" id="js-board">
         <div class="board-container">
             <h1>COVID-19 Real-Time Map</h1>
+        </div>
+        <div class="world-stat">
+            <div>
+                <p>Confirmed:</p>
+                <p id="js-confirmed"> Confirmed:</p>
+            </div>
+            <div>
+            <p>Deaths:</p>
+            <p id="js-deaths"> Deaths:</p>
+        </div>
+
         </div>
         <div class="board-list">
             <ul id="js-list">
@@ -27,6 +45,7 @@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
+    <script src="https://kit.fontawesome.com/07327420e5.js" crossorigin="anonymous"></script>
     <script>
     var mymap = L.map('mapid').setView([13.7563, 100.5018], 5);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYm9idGhlYnVpbGRlcjAxMiIsImEiOiJjazh3ZmJiMjIwdnVnM2pudmZyanAzcXRhIn0.p83Q91X_lAmXG6bFe3njVA', {
@@ -49,6 +68,8 @@
     .then((data) => {
         const {locations, latest:{confirmed, deaths}} = data
         console.log(confirmed,deaths)
+        document.getElementById("js-confirmed").innerText = confirmed;
+        document.getElementById("js-deaths").innerText = deaths;
         //console.log("locations :",locations);
         locations.map(l => {
             const {country, country_population, province, coordinates:{latitude, longitude}, latest:{confirmed, recovered, deaths} } = l
@@ -93,7 +114,6 @@
 
     }); 
 
-
         function getZone(confirmed){
             let zone = "";
             if(confirmed > 0 && confirmed <200){
@@ -111,6 +131,10 @@
             }
             return zone;
         }
+        function toggleShowInfo(){
+            var el = document.getElementById("js-board");
+           el.classList.toggle("active"); 
+            }
 
     </script>
 </body>

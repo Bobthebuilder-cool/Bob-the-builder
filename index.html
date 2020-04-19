@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COVID-19 Information</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
@@ -40,16 +39,17 @@
               <nav class="nav-container">
                  <ul id="js-sidenav">
                      <li class="active"><a href="javascript:void(0)" target="_blank">What is COVID-19?</a></li>
-                     <li><a href="javascript:void(0)" target="_blank">How to Protect Yourself</a></li>
-                     <li><a href="javascript:void(0)" target="_blank">How Did it Come About?</a></li>
-                     <li><a href="javascript:void(0)" target="_blank">Common Symptoms</a></li>
-                     <li><a href="javascript:void(0)" target="_blank">Flattening the Curve</a></li>
-                     <li><a href="javascript:void(0)" target="_blank">Facts about COVID-19</a></li>
-                     <li><a href="javascript:void(0)" target="_blank">DIY Hand Sanitizer</a></li>
-                     <li><a href="javascript:void(0)" target="_blank">Time SARS-CoV-2 Lasts on Surfaces</a></li>
-                     <li><a href="javascript:void(0)" target="_blank">Other Coronaviruses</a></li>
-                     <li><a href="javascript:void(0)" target="_blank">Sources</a></li>
-                 </ul>
+                     <li><a href="javascript:void(0)">How to Protect Yourself</a></li>
+                     <li><a href="javascript:void(0)">How Did it Come About?</a></li>
+                     <li><a href="javascript:void(0)">Common Symptoms</a></li>
+                     <li><a href="javascript:void(0)">Flattening the Curve</a></li>
+                     <li><a href="javascript:void(0)">Facts about COVID-19</a></li>
+                     <li><a href="javascript:void(0)">DIY Hand Sanitizer</a></li>
+                     <li><a href="javascript:void(0)">Time SARS-CoV-2 Lasts on Surfaces</a></li>
+                     <li><a href="javascript:void(0)">Other Coronaviruses</a></li>
+                     <li><a href="javascript:void(0)">Sources</a></li>
+                     <li><a href="map.html">Interactive COVID-19 Map</a></li>
+                   </ul>
              </nav>
           </div>
       
@@ -247,7 +247,7 @@
             });
             //Nav scroll to section
             $("#js-sidenav").find("li").on("click",function(e){
-                e.preventDefault();
+                //e.preventDefault();
                 $("#js-sidenav").find("li").removeClass("active");
                 $(this).addClass("active")
                 var listIndex = $(this).index();
